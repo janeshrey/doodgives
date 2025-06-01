@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="site-input-groups">
+        <label for="content" class="box-input-label">{{ __('Article Content:') }}</label>
+        <textarea id="content" name="content" class="box-input mb-0" required></textarea>
+    </div>
+    
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        height: 300,
+        menubar: false,
+        plugins: ['link', 'lists', 'autoresize'],
+        toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent'
+    });
+</script>
+
+</body>
+</html>
