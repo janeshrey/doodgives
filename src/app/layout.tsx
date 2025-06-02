@@ -6,7 +6,6 @@ import "./special.css";
 import "./roots.css";
 import "./appy.css";
 import Image from "next/image";
-import { AuthProvider } from "@/contexts/AuthContext";
 import { useState, createContext, useContext } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletConnectionProvider } from '@/contexts/WalletConnectionProvider';
@@ -423,7 +422,7 @@ export default function RootLayout({
   };
 
   return (
-    <AuthProvider>
+    
       <ModalContext.Provider value={{
         isModalOpen,
         isWalletListOpen,
@@ -456,6 +455,6 @@ export default function RootLayout({
           </html>
         </WalletConnectionProvider>
       </ModalContext.Provider>
-    </AuthProvider>
+  
   );
 }
