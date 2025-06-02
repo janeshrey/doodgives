@@ -1,15 +1,14 @@
 'use client';
 
-import localFont from "next/font/local";
+
 import "./globals.css";
 import "./special.css";
 import "./roots.css";
 import "./appy.css";
 import Image from "next/image";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { useState, createContext, useContext, useEffect } from 'react';
+import { useState, createContext, useContext } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { useRouter } from 'next/navigation';
 import { WalletConnectionProvider } from '@/contexts/WalletConnectionProvider';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 

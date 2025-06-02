@@ -301,7 +301,7 @@ function ClaimContent() {
                   <div className="mt-4 flex flex-col md:mt-0">
                     <p className="text-sm font-semibold tracking-[.48px] md:text-base">CONNECT CLAIM WALLET</p>
                     <p className="text-xs font-thin text-white/50 md:text-base">
-                      Connect the Solana wallet where you'd like to receive your $DOOD. Be sure to have at least .01 SOL available in this wallet.
+                      Connect the Solana wallet where you would like to receive your $DOOD. Be sure to have at least .01 SOL available in this wallet.
                     </p>
                   </div>
 
@@ -474,7 +474,7 @@ function HomeContent() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-center text-sm font-semibold md:text-base">CONNECT A WALLET TO CHECK $DOOD CLAIM ELIGIBILITY</p>
-                  <p className="text-center text-sm font-thin opacity-50 md:text-base">Don't worry, you can connect more wallets later.</p>
+                  <p className="text-center text-sm font-thin opacity-50 md:text-base">You can connect more wallets later.</p>
                   <p className="text-center text-sm font-thin opacity-50 md:text-base">{ }</p>
                 </div>
               </div>
@@ -488,8 +488,7 @@ function HomeContent() {
 
 export default function Home() {
   const { isClaimOpen } = useModal();
-    const { connected, disconnect, publicKey, sendTransaction } = useWallet();
-  
+     
   return (
  
     ( isClaimOpen) ? (
