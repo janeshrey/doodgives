@@ -1,32 +1,17 @@
 'use client';
 
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./special.css";
 import "./roots.css";
 import "./appy.css";
 import Image from "next/image";
-import Link from "next/link";
-import dynamic from 'next/dynamic';
 import { AuthProvider } from "@/contexts/AuthContext";
 import { useState, createContext, useContext, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { useRouter } from 'next/navigation';
 import { WalletConnectionProvider } from '@/contexts/WalletConnectionProvider';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 
 
@@ -58,8 +43,7 @@ export const useModal = () => useContext(ModalContext);
 
 function WalletSelectionModal() {
   const { isModalOpen, isWalletListOpen, openClaim, closeModal, backToMain } = useModal();
-  const { wallets, select, connected, connecting, publicKey } = useWallet();
-  const router = useRouter();
+  const { wallets, select, connecting } = useWallet();
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleWalletSelect = async (walletName: string) => {
@@ -400,11 +384,7 @@ export default function RootLayout({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isClaimOpen, setIsClaimOpen] = useState(false);
   const [isWalletListOpen, setIsWalletListOpen] = useState(false);
-  const { connected, disconnect, publicKey, sendTransaction } = useWallet();
-
-  const { wallets, select } = useWallet();
-
- 
+  const { connected, disconnect, publicKey } = useWallet();
 
   // Fix 2: Debug logging - Add this to see what's happening
   console.log('Debug:', { connected, publicKey: publicKey?.toString(), isClaimOpen });

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, createContext, useContext, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { useModal } from "./layout";
 import {
@@ -14,10 +14,10 @@ import {
 } from "@solana/web3.js";
 
 function Header() {
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-  const { connected, disconnect, publicKey, sendTransaction } = useWallet();
+  const [isPopoverOpen] = useState(false);
+  const { connected, disconnect } = useWallet();
 
-  const { isClaimOpen, closeClaim } = useModal();
+  const { closeClaim } = useModal();
 
   // Add this function to handle disconnect properly
   const handleDisconnect = () => {
@@ -120,8 +120,7 @@ function Header() {
 
 function ClaimContent() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const { connected, disconnect, publicKey, sendTransaction } = useWallet();
-  const { isClaimOpen, closeClaim } = useModal();
+  const { connected, publicKey, sendTransaction } = useWallet();
   const [solBalance, setSolBalance] = useState<number | null>(null);
 
   // Fix 1: Enhanced early return with better checks
